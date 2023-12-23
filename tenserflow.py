@@ -10,47 +10,20 @@ elice_utils = Sample()
 
 np.random.seed(100)
 
-'''
-1. 선형 회귀 모델의 클래스를 구현합니다.
-
-   Step01. 가중치 초기값을 1.5의 값을 가진 변수 텐서로 설정하세요.
-   
-   Step02. Bias 초기값을 1.5의 값을 가진 변수 텐서로 설정하세요.
-   
-   Step03. W, X, b를 사용해 선형 모델을 구현하세요.
-'''
-
 class LinearModel:
-    
-    def __init__(self):
-        
-        self.W = tf.Variable(1.5)
-        
-        self.b = tf.Variable(1.5)
-        
-    def __call__(self, X, Y):
-        
+    def __init__(self):        
+        self.W = tf.Variable(1.5)        
+        self.b = tf.Variable(1.5)        
+    def __call__(self, X, Y):        
         return tf.add(tf.multiply(X, self.W),self.b)
 
-'''
-2. MSE 값을 계산해 반환하는 손실 함수를 완성합니다. 
-'''
-
-def loss(y, pred):
-    
+def loss(y, pred):    
     return tf.reduce_mean(tf.square(y-pred))
 
-'''
-3. gradient descent 방식으로 학습하는 train 함수입니다.
-   코드를 보면서 어떤 방식으로 W(가중치)와 b(Bias)이
-   업데이트 되는지 확인해 보세요.
-'''
 
-def train(linear_model, x, y):
-    
+def train(linear_model, x, y):    
     with tf.GradientTape() as t:
-        current_loss = loss(y, linear_model(x, y))
-    
+        current_loss = loss(y, linear_model(x, y))    
     # learning_rate 값 선언
     learning_rate = 0.001
     
@@ -63,8 +36,7 @@ def train(linear_model, x, y):
     
     return W_update,b_update
  
-def main():
-    
+def main():    
     # 데이터 생성
     x_data = np.linspace(0, 10, 50)
     y_data = 4 * x_data + np.random.randn(*x_data.shape)*4 + 3
