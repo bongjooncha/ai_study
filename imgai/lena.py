@@ -28,7 +28,6 @@ if __name__ == "__main__":
     # 주어진 이미지를 읽어옵니다.
     img = cv2.imread("./lena.jpg", cv2.IMREAD_GRAYSCALE)
     
-    
     # 함수를 호출하여 결과를 확인합니다.
     ascii_img = img2ascii(img, 16, ascii_string)
     print_ascii_img(ascii_img)
