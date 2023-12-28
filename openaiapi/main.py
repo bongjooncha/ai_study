@@ -39,7 +39,7 @@ response = client.chat.completions.create(
       {'role': "user",
        "content":prompt},
   ],
-  temperature = 1 #0에 가까울수록 있는 그대로, 1에 가까울수록 상상력
+#   temperature = 1 #0에 가까울수록 있는 그대로, 1에 가까울수록 상상력
 )
 
 print(response.choices[0].message)
