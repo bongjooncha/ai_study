@@ -3,9 +3,16 @@ import cv2
 import numpy
 from tensorflow.keras import datasets, layers, models, activations, losses, optimizers, metrics
 
-# mnist 데이터 셋을 로드합니다.
-# 각각 학습셋(이미지, 라벨), 테스트 셋(이미지, 라벨)으로 구성이 되어 있습니다.
+# mnist는 아래의 모양을 가진 숫자 데이터이다.(numpy로 읽을수 있음)
+"""
+['x_test', 'x_train', 'y_train', 'y_test']
+Train Images Shape: (10000, 28, 28)
+Train Labels Shape: (60000, 28, 28)
+Test Images Shape: (60000,)
+Test Labels Shape: (10000,)
+"""
 data_path = os.path.abspath("./mnist.npz")
+# train 데이터와 test 데이터로 나누고 
 (train_images, train_labels), (test_images, test_labels) = datasets.mnist.load_data(path=data_path)
 
 # 학습과 테스트에 사용할 데이터의 수를 조정합니다.
