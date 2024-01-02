@@ -7,16 +7,16 @@ data = np.load('mnist.npz')
 print(list(data))
 
 # 각 데이터에 접근
-train_images = data['x_test']
-train_labels = data['x_train']
-test_images = data['y_train']
+train_images = data['x_train']
+train_labels = data['y_train']
+test_images = data['x_test']
 test_labels = data['y_test']
 
 # 데이터 확인
-print('Train Images Shape:', train_images.shape)
-print('Train Labels Shape:', train_labels.shape)
-print('Test Images Shape:', test_images.shape)
-print('Test Labels Shape:', test_labels.shape)
+print('Train image:', train_images.shape)
+print('Train labels:', train_labels.shape)
+print('Test images:', test_images.shape)
+print('Test labels:', test_labels.shape)
 
 # 파일 닫기
 data.close()

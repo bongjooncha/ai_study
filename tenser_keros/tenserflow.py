@@ -41,6 +41,8 @@ def main():
     predictions = model.predict(x_data)
     
     Visualize(x_data, y_data, predictions)
+
+    model.save_weights('model_weights.h5')
     
     return history, model
 

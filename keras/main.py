@@ -6,10 +6,10 @@ from tensorflow.keras import datasets, layers, models, activations, losses, opti
 # mnist는 아래의 모양을 가진 숫자 데이터이다.(numpy로 읽을수 있음)
 """
 ['x_test', 'x_train', 'y_train', 'y_test']
-Train Images Shape: (10000, 28, 28)
-Train Labels Shape: (60000, 28, 28)
-Test Images Shape: (60000,)
-Test Labels Shape: (10000,)
+Train image: (60000, 28, 28)
+Train labels: (60000,)      
+Test images: (10000, 28, 28)
+Test labels: (10000,)
 """
 data_path = os.path.abspath("./mnist.npz")
 # train 데이터와 test 데이터로 나누고 
@@ -62,7 +62,10 @@ test_loss, test_acc = model.evaluate(test_images, test_labels)
 # 학습 결과를 출력합니다.
 print("test_loss:", test_loss, "test_acc:", test_acc)
 
+model.save_weights('model_weights.h5')
+
 # 모델에 테스트 이미지를 넣고 예측값을 확인해봅니다.
+
 test_img = cv2.imread("7.png", cv2.IMREAD_GRAYSCALE)
 
 # 입력 이미지의 픽셀을 0~1 사이로 정규화 합니다.
